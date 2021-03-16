@@ -1,6 +1,7 @@
 package lab5;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 public class Book implements Item, Serializable{
 private String author;
@@ -18,8 +19,11 @@ public void setAuthor(String author) {
 public int getReleaseYear() {
 	return releaseYear;
 }
-public void setReleaseYear(int releaseYear) {
-	this.releaseYear = releaseYear;
+public void setReleaseYear(int releaseYear) throws IncorrectYearException {
+	if(releaseYear<0 || releaseYear>Calendar.getInstance().get(Calendar.YEAR)) {//anul e incorect daca e mai mic decat 0 si mai mare decat anul curent
+	throw new IncorrectYearException("Incorrect year");
+	}
+	else this.releaseYear = releaseYear;
 }
 @Override
 public String toString() {

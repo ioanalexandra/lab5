@@ -32,5 +32,6 @@ public class Main {
 		Catalog catalog = new Catalog("Books", "C:\\Users\\alexa\\Desktop\\lab5\\book.txt");
 		catalog.load("C:\\Users\\alexa\\Desktop\\lab5\\book.txt");
 		catalog.list();
+		catalog.play();
 	}
 }

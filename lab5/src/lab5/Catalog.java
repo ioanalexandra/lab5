@@ -1,5 +1,6 @@
 package lab5;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -90,5 +91,15 @@ public class Catalog implements Serializable{
 	@Override
 	public String toString() {
 		return "Catalog [items=" + items.size() + ", path=" + path + ", name=" + name + "]";
+	}
+	
+	public void play() {//functie care deschide fisierul cu aplicatia default pentru tipul respectiv
+		File f = new File(path);
+		try {
+			Desktop.getDesktop().open(f);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
